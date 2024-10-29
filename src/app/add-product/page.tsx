@@ -1,3 +1,4 @@
+import FormSubmitButton from "@/components/FormSubmitButton";
 import prisma from "@/lib/db/prisma";
 import { redirect } from "next/navigation";
 
@@ -7,7 +8,7 @@ export const metadata = {
 
 async function addProduct(formdata: FormData) {
   "use server";
-  
+
   const name = formdata.get("name")?.toString();
   const description = formdata.get("description")?.toString();
   const imageURL = formdata.get("imageURL")?.toString();
@@ -28,7 +29,7 @@ export default function AddProductPage() {
   return (
     <div>
       <h1 className="text-lg mb-3 text-gray-600">Add Products</h1>
-      <form action={addProduct} >
+      <form action={addProduct}>
         <input
           required
           name="name"
@@ -56,9 +57,9 @@ export default function AddProductPage() {
           className="input-bordered text-gray-700 input mb-3 w-full"
           type="number"
         />
-        <button className="btn bg-primary btn-block" type="submit">
-          Add Product
-        </button>
+        <FormSubmitButton className="btn-block" type="submit">
+          Add Products
+        </FormSubmitButton>
       </form>
     </div>
   );
