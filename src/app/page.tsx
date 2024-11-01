@@ -29,7 +29,11 @@ export default async function Home() {
           </div>
         </div>
       </div>
-      <div></div>
+      <div className="my-4 grid grid-cols-1 text-gray-700 md:grid-cols-2 xl:grid-cols-3 gap-4">
+        {products.slice(1).map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </div>
   );
 }
